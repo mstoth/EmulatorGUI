@@ -102,8 +102,12 @@ class EmulatorGui():
         self.input_stream.set(str(self.em.input_stream))
         self.output_stream.set(str(self.em.output_stream))
         self.acce.set(str(self.em.acc))
+        if self.em.acc < 0:
+            psign = 0
+        else:
+            psign = 1
         s = self.em.inst
-        args = [1, int(s[0]), int(s[1]), int(s[2])]
+        args = [psign, int(s[0]), int(s[1]), int(s[2])]
         load = self.cd.get_image(int(args[0]), int(args[1]), int(args[2]), int(args[3]))
         render = ImageTk.PhotoImage(load.resize((500, 500), Image.ANTIALIAS))
         self.get_canvas().create_image(20, 20, anchor=NW, image=render)
@@ -113,7 +117,7 @@ class EmulatorGui():
         self.mem.insert(1.0, s)
 
     def send(self):
-        self.em.acc = self.acce.get()
+        self.em.acc = int(self.acce.get())
         self.em.inst = self.inste.get()
         self.em.pc = int(self.pce.get())
         self.updateDisplay()
