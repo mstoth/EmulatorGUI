@@ -163,9 +163,6 @@ class EmulatorGui():
     def getIOFrame(self):
         return self.ioFrame
 
-    def sleep(self, param):
-        pass
-
 
 if __name__ == "__main__":
     root = Toplevel()
