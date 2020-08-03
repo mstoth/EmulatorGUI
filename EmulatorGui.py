@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 
 
 class Window(Frame):
-    def __init__(self, master=None):
+    def __init__(self, master=Toplevel()):
         Frame.__init__(self, master)
         self.master = master
         self.pack(fill=BOTH, expand=1)  # expand frame to fill window
@@ -13,11 +13,11 @@ class Window(Frame):
 
 class EmulatorGui():
 
-    def __init__(self,master=None):
+    def __init__(self,master=Toplevel()):
         self.root = master
         self.app = Window(self.root)
         self.root.wm_title("CARDIAC")
-        self.root.geometry("600x800")
+        self.root.geometry="600x800"
         self.em = Emulator()
         self.cd = CardiacDisplay()
         self.cardiacCanvas = Canvas(self.root, width=500, height=500)

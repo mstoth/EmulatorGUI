@@ -21,7 +21,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_displays(self):
         root = self.g.display()
-        root.geometry("600x800")
+        root.geometry="600x800"
 
     def test_inst(self):
         s = self.g.em.inst
