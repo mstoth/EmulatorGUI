@@ -1,3 +1,4 @@
+
 import tkinter
 import unittest
 from EmulatorGui import EmulatorGui
@@ -11,6 +12,7 @@ class MyTestCase(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.g.get_canvas().delete("all")
+
 
     def test_gui(self):
         self.g.set_geometry("600x800")

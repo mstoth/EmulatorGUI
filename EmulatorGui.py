@@ -17,7 +17,7 @@ class EmulatorGui():
         self.root = master
         self.app = Window(self.root)
         self.root.wm_title("CARDIAC")
-        self.root.geometry="600x800"
+        self.root.geometry("600x800")
         self.em = Emulator()
         self.cd = CardiacDisplay()
         self.cardiacCanvas = Canvas(self.root, width=500, height=500)
@@ -89,7 +89,7 @@ class EmulatorGui():
         self.regFrame.retrieveButton = Button(self.regFrame, padx=10, text="Retrieve", command=self.retrieve)
         self.regFrame.retrieveButton.pack(side=LEFT, padx=10)
         self.regFrame.pack()
-        self.mem = Text(self.root, width=300, height=500, padx=120)
+        self.mem = Text(self.root, width=300, height=500, padx=140)
         self.mem.delete(1.0, "end")
         s = self.em.get_dump()
         self.mem.insert(1.0, s)
@@ -147,7 +147,7 @@ class EmulatorGui():
         self.updateDisplay()
 
     def set_geometry(self, g):
-        self.root.geometry = g
+        self.root.geometry(g)
 
     def geometry(self):
         return self.root.geometry
