@@ -2,7 +2,7 @@ from tkinter import *
 from cardiacgui import CardiacDisplay
 from testEmulator import Emulator
 from PIL import Image, ImageTk
-
+import os
 
 class Window(Frame):
     def __init__(self, master=Toplevel()):
@@ -89,7 +89,10 @@ class EmulatorGui():
         self.regFrame.retrieveButton = Button(self.regFrame, padx=10, text="Retrieve", command=self.retrieve)
         self.regFrame.retrieveButton.pack(side=LEFT, padx=10)
         self.regFrame.pack()
-        self.mem = Text(self.root, width=300, height=500, padx=140)
+        if os.name == 'posix':
+            self.mem = Text(self.root, width=300, height=500, padx=140)
+        else:
+            self.mem = Text(self.root, width=300, height=500, padx=120)
         self.mem.delete(1.0, "end")
         s = self.em.get_dump()
         self.mem.insert(1.0, s)
