@@ -37,7 +37,7 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(type(self.g.getIOFrame()) == tkinter.Frame)
         self.assertTrue(type(self.g.getIOFrame().inputEntry) == tkinter.Entry)
         self.assertTrue(type(self.g.getIOFrame().outputEntry) == tkinter.Entry)
-        self.assertTrue(type(self.g.mem) == tkinter.Text)
+        self.assertTrue(type(self.g.mem) == tkinter.Text)   
 
     def test_load_program(self):
         self.g.fname.set("simpleNim.asm")
